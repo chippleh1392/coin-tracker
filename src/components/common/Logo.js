@@ -1,8 +1,14 @@
+import logo from "../../assets/img/logo.svg";
+
 const Logo = () => {
     return (
-        <div>
-            <h1>Logo</h1>
-        </div>
+        <h1 className="header-logo">
+            <a href="/">
+                <div className="header-logo-container">
+                    <img className="header-logo-image" src={logo} alt="Coin Tracker logo"/>
+                </div>
+            </a>
+        </h1>
     );
 }
 
