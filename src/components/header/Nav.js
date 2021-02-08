@@ -1,4 +1,4 @@
-import ChevronDown from'../common/ChevronDown';
+import ChevronDown from '../common/ChevronDown';
 
 const Nav = () => {
     return (
@@ -19,13 +19,11 @@ const Nav = () => {
                 <li className="navList-item">
                     <a className="navList-action" href="#">
                         Portfolio
-                        <ChevronDown />
                     </a>
                 </li>
                 <li className="navList-item">
                     <a className="navList-action" href="#">
                         Watchlist
-                        <ChevronDown />
                     </a>
                 </li>
             </ul>

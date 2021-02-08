@@ -2,7 +2,8 @@ import Logo from '../common/Logo';
 import Nav from './Nav';
 import NavUser from './NavUser';
 import HeaderMarketStats from './HeaderMarketStats';
-import DarkMode from './DarkMode';;
+import DarkMode from './DarkMode';
+import MobileMenuToggle from './MobileMenuToggle';
 
 const Header = () => {
 	return (
@@ -21,6 +22,7 @@ const Header = () => {
 						<Logo />
 						<Nav />
 						<NavUser />
+						<MobileMenuToggle />
 					</div>
 				</div>
 			</div>
