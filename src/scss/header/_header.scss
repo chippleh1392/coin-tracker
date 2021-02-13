@@ -143,6 +143,10 @@
 .nav {
     display: none;
 
+    &--open {
+        display: block;
+    }
+
     @media (min-width: 801px) {
         display: block;
         height: 100%;

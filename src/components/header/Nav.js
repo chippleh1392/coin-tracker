@@ -1,8 +1,11 @@
 import ChevronDown from '../common/ChevronDown';
 
-const Nav = () => {
+const Nav = ({ open }) => {
+
+    const isHidden = open ? true: false;
+
     return (
-        <nav className="nav">
+        <nav className={`nav ${open ? "nav--open" : ""}`}>
             <ul className="navList-items">
                 <li className="navList-item">
                     <a className="navList-action" href="#">

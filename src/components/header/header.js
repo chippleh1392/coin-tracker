@@ -1,3 +1,5 @@
+import React, { useState, useRef } from 'react';
+// import { useOnClickOutside } from './hooks';
 import Logo from '../common/Logo';
 import Nav from './Nav';
 import NavUser from './NavUser';
@@ -6,6 +8,11 @@ import DarkMode from './DarkMode';
 import MobileMenuToggle from './MobileMenuToggle';
 
 const Header = () => {
+	const [open, setOpen] = useState(false);
+	// const node = useRef();
+  
+	// useOnClickOutside(node, () => setOpen(false));
+
 	return (
 		<header className="header">
 			<div className="header-top-container">
@@ -20,9 +27,9 @@ const Header = () => {
 				<div className="container">
 					<div className="header-bottom">
 						<Logo />
-						<Nav />
+						<Nav open={open} setOpen={setOpen}/>
 						<NavUser />
-						<MobileMenuToggle />
+						<MobileMenuToggle open={open} setOpen={setOpen} />
 					</div>
 				</div>
 			</div>
