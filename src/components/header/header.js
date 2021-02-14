@@ -14,7 +14,7 @@ const Header = () => {
 	// useOnClickOutside(node, () => setOpen(false));
 
 	return (
-		<header className="header">
+		<header className={`header ${open ? "open" : ""}`}>
 			<div className="header-top-container">
 				<div className="container">
 					<div className="header-top">
