@@ -1,76 +1,116 @@
+import React, { useState } from 'react';
 import ChevronDown from '../common/ChevronDown';
 import NavSubMenu from '../header/NavSubMenu';
 
 const Nav = ({ open }) => {
 
-    const isHidden = open ? true: false;
-
-    const navObject = {
-        nav1: {
+    // navigation data array
+    const navList = [
+        {
+            id: 0,
             name: "Cryptocurrencies",
             url: "/cryptocurrencies/",
-            children: {
-                subPage1: {
+            children: [
+                {
+                    id: 1,
                     name: "Ranking",
                     url: "/ranking"
                 },
-                subPage2: {
+                {
+                    id: 2,
                     name: "Global Charts",
                     url: "/global-charts"
                 },
-                subPage3: {
+                {
+                    id: 3,
                     name: "Spotlight",
                     url: "/spotlight"
                 }
-            }
+            ]
         },
-        nav2: {
+        {
+            id: 1,
             name: "Exchanges",
             url: "/exchanges/",
-            children: {
-                subPage1: {
+            children: [
+                {
+                    id: 1,
                     name: "Spot",
                     url: "/spot/"
                 },
-                subPage2: {
+                {
+                    id: 2,
                     name: "Derivatives",
                     url: "/derivatives"
                 },
-                subPage3: {
+                {
+                    id: 3,
                     name: "DEX",
                     url: "/dex/"
                 }
-            }
+            ]
         },
-        nav3: {
+        {
+            id: 2,
             name: "Portfolio",
             url: "/portfolio",
             children: {
 
             }
         },
-        nav4: {
+        {
+            id: 3,
             name: "Watchlist",
             url: "/watchlist",
             children: {
 
             }
         }
+    ]
+
+    // check if nav item has children (i.e. subMenu)
+    const hasSubMenu = item => {
+        if (item.length > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
+    // nav list item map function
+    const listItems = navList.map((item, index) => (
+        <li className={`navList-item ${hasSubMenu(item.children) ? "has-subMenu" : ""}`} key={item.id}>
+            {
+                hasSubMenu(item.children) ? 
+                <>
+                    {/* <div className="navList-action-container">
+                        <a href={item.url} className="navList-action">
+                            {item.name}
+                        </a>
+                        <button className="button button--openMore" id={item.id}>
+                            <ChevronDown></ChevronDown>
+                        </button>
+                    </div>
+                    <NavSubMenu children={item.children} key={item.id}></NavSubMenu> */}
+                    <NavSubMenu item={item}></NavSubMenu>
+                </>
+                : 
+                <>
+                    <div className="navList-action-container">
+                        <a href={item.url} className="navList-action">
+                            {item.name}
+                        </a>
+                    </div>
+                </>
+            }
+        </li>
+    ))
+
+    // return
     return (
         <nav className={`nav ${open ? "nav--open" : ""}`}>
             <ul className="navList-items">
-                {
-                    Object.entries(navObject).map( ([key, value]) => ( 
-                        <li className="navList-item" id={key}> 
-                            <a className="navList-action" href={value.url}>
-                                {value.name}
-                            </a>
-                            {Object.keys(value.children).length > 0 ? <NavSubMenu children={value.children}></NavSubMenu> : ""}
-                        </li>
-                    ))
-                }
+                {listItems}
             </ul>
         </nav>
     );

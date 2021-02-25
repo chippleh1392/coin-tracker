@@ -1,7 +1,5 @@
 const MobileMenuToggle = ({ open, setOpen }) => {
 
-    const isExpanded = open ? true: false;
-
     return (
         <button className={`mobileMenuToggle ${open ? "open" : ""}`} aria-label="Toggle Menu" onClick={() => setOpen(!open)}>
             <i className="icon icon--mobileMenuToggle">

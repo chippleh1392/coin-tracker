@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-// import { useOnClickOutside } from './hooks';
+import React, { useState} from 'react';
 import Logo from '../common/Logo';
 import Nav from './Nav';
 import NavUser from './NavUser';
@@ -9,9 +8,6 @@ import MobileMenuToggle from './MobileMenuToggle';
 
 const Header = () => {
 	const [open, setOpen] = useState(false);
-	// const node = useRef();
-  
-	// useOnClickOutside(node, () => setOpen(false));
 
 	return (
 		<header className={`header ${open ? "open" : ""}`}>
